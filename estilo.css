@@ -18,7 +18,7 @@ body {
   background-image: url('8887113.jpg');
 }
 
-/* ======== CONTEÚDO PRINCIPAL ======== */
+
 main {
   width: 100%;
   max-width: 400px;
@@ -33,21 +33,21 @@ main {
   animation: fadeIn 1s ease-in-out;
 }
 
-/* ======== LOGO ======== */
+
 .conteiner-logo img {
   width: 80px;
   margin-bottom: 15px;
   filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.2));
 }
 
-/* ======== TÍTULO ======== */
+
 h1 {
   color: #0077b6;
   font-size: 1.5em;
   margin-bottom: 20px;
 }
 
-/* ======== FORMULÁRIO ======== */
+
 form {
   display: flex;
   flex-direction: column;
@@ -79,7 +79,7 @@ input::placeholder {
   color: #aaa;
 }
 
-/* ======== BOTÕES ======== */
+
 .botoes {
   display: flex;
   justify-content: space-around;
@@ -103,7 +103,7 @@ input::placeholder {
   transform: scale(1.05);
 }
 
-/* ======== ANIMAÇÃO ======== */
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -115,7 +115,7 @@ input::placeholder {
   }
 }
 
-/* ======== RESPONSIVIDADE ======== */
+
 @media (max-width: 450px) {
   .conteiner-pri {
     padding: 30px 20px;
