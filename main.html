@@ -1,36 +1,108 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>agua dos sonhos</title>
-    <link rel="stylesheet" href="estilo.css">
-    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
-     
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Água dos Sonhos</title>
+    <link rel="stylesheet" href="estilo.css" />
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon" />
+  </head>
+
+  <body>
     <main>
-            <div class="conteiner-pri">
-                <h1>Entre ou Cadastre-se</h1>
-                 <div class="conteiner-logo">
-                   <img src="logo.png" alt="logo-água">
-                </div>
-                <form action="cadastro.html" method="post">
-                    <label for="usuario">Nome de Usuário:</label>
-                    <input type="text" id="usuario" name="username" required placeholder="Digite seu nome ou e-mail">
-                    <label for="senha">Senha:</label>
-                    <input type="password" id="senha" name="password" required placeholder="Digite sua senha">
-                    <br>
-                 <div class="botoes"> 
-                    <button type="submit">Entrar</button>
-                    <button type="submit">Cancelar</button>
-                    <button type="submit">Cadastre-se</button>
-                </div>
-                    
-                </form>
-            </div>
-        
+      <div class="conteiner-pri">
+        <h1>Entre ou Cadastre-se</h1>
+
+        <div class="conteiner-logo">
+          <img src="logo.png" alt="logo-água" />
+        </div>
+
+      
+        <form id="formLogin" action="cadastro.html" method="post">
+          <label for="usuario">Nome de Usuário:</label>
+          <input
+            type="text"
+            id="usuario"
+            name="username"
+            required
+            placeholder="Digite seu nome ou e-mail"
+          />
+
+          <label for="senha">Senha:</label>
+          <input
+            type="password"
+            id="senha"
+            name="password"
+            required
+            placeholder="Digite sua senha"
+          />
+
+          <br />
+
+          <div class="botoes">
+            <button type="submit">Entrar</button>
+            <button type="button" id="cancelar">Cancelar</button>
+            <button type="button" id="cadastro">Cadastre-se</button>
+          </div>
+        </form>
+
+       
+        <p
+          id="mensagem"
+          style="color: red; font-weight: bold; margin-top: 10px;"
+        ></p>
+      </div>
     </main>
+
+
+    <script>
     
-</body>
+      const usuarioValido = "admin";
+      const senhaValida = "1234";
+
+     
+      const form = document.getElementById("formLogin");
+      const mensagem = document.getElementById("mensagem");
+
+      
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const usuario = document.getElementById("usuario").value.trim();
+        const senha = document.getElementById("senha").value.trim();
+
+        if (usuario === "" || senha === "") {
+          mensagem.textContent = "Preencha todos os campos!";
+          mensagem.style.color = "red";
+          return;
+        }
+
+        if (usuario === usuarioValido && senha === senhaValida) {
+          mensagem.style.color = "green";
+          mensagem.textContent = "Login bem-sucedido! Redirecionando...";
+          setTimeout(() => {
+            window.location.href = "pagina_inicial.html";
+          }, 1500);
+        } else {
+          mensagem.style.color = "red";
+          mensagem.textContent = "Usuário ou senha incorretos!";
+        }
+      });
+
+   
+      document
+        .getElementById("cancelar")
+        .addEventListener("click", function () {
+          form.reset();
+          mensagem.textContent = "";
+        });
+
+      
+      document
+        .getElementById("cadastro")
+        .addEventListener("click", function () {
+          window.location.href = "cadastro.html";
+        });
+    </script>
+  </body>
 </html>
