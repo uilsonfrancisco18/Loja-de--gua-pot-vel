@@ -53,56 +53,49 @@
         ></p>
       </div>
     </main>
-
-
     <script>
-    
-      const usuarioValido = "admin";
-      const senhaValida = "1234";
+  const usuarioValido = "admin";
+  const senhaValida = "1234";
 
-     
-      const form = document.getElementById("formLogin");
-      const mensagem = document.getElementById("mensagem");
+  const form = document.getElementById("formLogin");
+  const mensagem = document.getElementById("mensagem");
 
-      
-      form.addEventListener("submit", function (event) {
-        event.preventDefault();
+  // Validação do login
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
 
-        const usuario = document.getElementById("usuario").value.trim();
-        const senha = document.getElementById("senha").value.trim();
+    const usuario = document.getElementById("usuario").value.trim();
+    const senha = document.getElementById("senha").value.trim();
 
-        if (usuario === "" || senha === "") {
-          mensagem.textContent = "Preencha todos os campos!";
-          mensagem.style.color = "red";
-          return;
-        }
+    if (usuario === "" || senha === "") {
+      mensagem.textContent = "Preencha todos os campos!";
+      mensagem.style.color = "red";
+      return;
+    }
 
-        if (usuario === usuarioValido && senha === senhaValida) {
-          mensagem.style.color = "green";
-          mensagem.textContent = "Login bem-sucedido! Redirecionando...";
-          setTimeout(() => {
-            window.location.href = "pagina_inicial.html";
-          }, 1500);
-        } else {
-          mensagem.style.color = "red";
-          mensagem.textContent = "Usuário ou senha incorretos!";
-        }
-      });
+    if (usuario === usuarioValido && senha === senhaValida) {
+      mensagem.style.color = "green";
+      mensagem.textContent = "Login bem-sucedido! Redirecionando...";
+      setTimeout(() => {
+        window.location.href = "pagina_inicial.html";
+      }, 1500);
+    } else {
+      mensagem.style.color = "red";
+      mensagem.textContent = "Usuário ou senha incorretos!";
+    }
+  });
 
-   
-      document
-        .getElementById("cancelar")
-        .addEventListener("click", function () {
-          form.reset();
-          mensagem.textContent = "";
-        });
+  // Botão "Cancelar"
+  document.getElementById("cancelar").addEventListener("click", function () {
+    form.reset();
+    mensagem.textContent = "";
+  });
 
-      
-      document
-        .getElementById("cadastro")
-        .addEventListener("click", function () {
-          window.location.href = "cadastro.html";
-        });
-    </script>
+  // ✅ Botão "Cadastre-se"
+  document.getElementById("cadastro").addEventListener("click", function () {
+    window.location.href = "cadastrousuario.html"; // Redireciona corretamente
+  });
+</script>
+
   </body>
 </html>
